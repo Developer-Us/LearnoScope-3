@@ -1,0 +1,84 @@
+ .otp_card {
+     margin-top: 120px;
+    width: 900px;
+    border: none;
+    height: 350px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.otp_head {
+    color: red;
+}
+
+.inp{
+    width: 80px;
+    height: 80px;
+    margin: 25px;
+}
+
+.inp:focus {
+    box-shadow: none;
+    border: 2px solid red;
+}
+
+.validate {
+    border-radius: 20px;
+    height: 40px;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    width: 140px;
+}
+.validate:hover{
+    background-color: red;
+    color: black;
+    box-shadow: black 5px;
+}
+.email_id{
+    font-weight: bold;
+    font-size: large;
+}
+@media screen and (max-width: 991.5px) {
+    .inp{
+        width: 75px;
+        height: 75px;
+        margin: 18px;
+    }
+}
+@media screen and (max-width: 767.5px) {
+    .inp{
+        width: 55px;
+        height: 55px;
+        margin: 14px;
+    }
+}
+@media screen and (max-width: 525px) {
+    .inp{
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 451px) {
+    .inp{
+        width: 45px;
+        height: 45px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 396px) {
+    .inp{
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 396px) {
+    .inp{
+        width: 35px;
+        height: 35px;
+        margin: 10px;
+    }
+}

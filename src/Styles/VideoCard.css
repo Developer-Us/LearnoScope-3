@@ -1,0 +1,12 @@
+.videoCard:hover{
+    transform: scale(1.13);
+    transition: transform .6s;
+    transition-delay: 0.1s;
+    cursor: pointer;
+}
+
+.videoCard{
+        background: linear-gradient(#ffffff, #ffffff, #e8f2ff);
+        border-radius: 14px;
+        box-shadow:7px 7px 40px #7c8bff;
+}

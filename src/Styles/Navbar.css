@@ -1,0 +1,59 @@
+.navbar-custom-light{
+background-color: white;
+padding: 6px 2px;
+}
+
+.navbar-custom-dark{
+    background-color: #202020;
+    padding: 12px 2px;
+    }
+
+.form-control-customize{
+    width: 390px ; 
+    border-radius:5px;
+    border: none;
+    /* background-color: rgb(1, 5, 27); */
+    background-color: rgb(230, 230, 230);
+    padding: 10px;
+}
+
+.userProfileOptions{
+    padding: 4px 3px;
+    border-radius:5px;
+}
+
+.userProfileOptions:hover{
+    background-color:  rgb(198, 227, 251);
+    cursor: pointer;
+}
+
+#Backbtn{
+    display: none;
+}
+#ModeIcon{
+    cursor: pointer;
+}
+
+/* @media screen and (max-width: 850px) {
+    .App_Name{
+        display: none;
+    }
+} */
+@media screen and (max-width: 846px) {
+    .Search_Bar{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 644px) {
+    .Search_Bar{
+        width: 140px;
+    }
+    .App_Name{
+        font-size: smaller;
+    }
+}
+@media screen and (max-width: 586px) {
+    .Search_Bar{
+        display: none;
+    }
+}
