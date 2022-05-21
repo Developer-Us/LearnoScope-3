@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+// import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import UserDataContext from '../Context/UserData/UserDataContext';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ import VideoCard from './VideoCard';
 let vidArrayReverse = [];
 let vidArray = [];
 export default function Bookmark() {
-  const applicationMode = useContext(ApplicationModeContext);
+  // const applicationMode = useContext(ApplicationModeContext);
   const is_loggedin = useContext(LoggedInStatusContext);
   const userData = useContext(UserDataContext);
   const [loading, setLoading] = useState(true);
@@ -23,14 +23,14 @@ export default function Bookmark() {
     if (is_loggedin.loggedin === true) {
       getBookmarkData(); // for getting Bookmark Data
     }
-    if (applicationMode.mode === "light")
-    {
-      document.getElementById("heading").style.color = "#282828";
-    }
-    else
-        {
-      document.getElementById("heading").style.color = "white";
-    }
+    // if (applicationMode.mode === "light")
+    // {
+    //   document.getElementById("heading").style.color = "#282828";
+    // }
+    // else
+    //     {
+    //   document.getElementById("heading").style.color = "white";
+    // }
   })
 
   async function getBookmarkData() {
