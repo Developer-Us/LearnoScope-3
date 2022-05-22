@@ -83,7 +83,7 @@ export default function ProfileCard() {
 
 
             <div className="profile-card-ctr">
-              <button className="profile-card__button button--blue js-message-btn">Clear History</button>
+              {/* <button className="profile-card__button button--blue js-message-btn">Clear History</button> */}
               <button onClick={handleDeleteUserAccount} className="profile-card__button button--orange">Delete Account</button>
             </div>
           </div>

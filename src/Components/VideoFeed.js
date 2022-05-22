@@ -100,7 +100,7 @@ export default function VideoFeed() {
                     vidArray.map((val) => {
                         return (
                             <>
-                                <VideoCard key={val.sno + 4} sno={val.sno} videoTitle={val.title} videoChannelPhoto={val.video_uploader_img} videoThumbnail={`${userData.backendApi}${val.thumbnail}`} channelName={val.channelName} views={val.video_views} videoUploadingTime={(val.timestamp).split("T")[0]} />
+                                <VideoCard key={val.sno} sno={val.sno} videoTitle={val.title} videoChannelPhoto={val.video_uploader_img} videoThumbnail={`${userData.backendApi}${val.thumbnail}`} channelName={val.channelName} views={val.video_views} videoUploadingTime={(val.timestamp).split("T")[0]} />
                             </>
                         )
                     })

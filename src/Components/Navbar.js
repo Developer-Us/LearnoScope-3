@@ -259,7 +259,7 @@ export default function Navbar() {
 
                             {/* user Dashboard/menu */}
                             <div className="mx-2" id='UserDashBoard'>
-                                <img src="Images/hill.jpg" id="dashboard-user-profile-pic" height="32" width="32" alt="" style={{ borderRadius: "50%", cursor: "pointer" }} onMouseEnter={dashboardMouseEnterEvent} />
+                                <img src="Images/hill.jpg" id="dashboard-user-profile-pic" height="32" width="32" alt="" style={{padding:"1px 1px", border:"1.2px solid black ",borderRadius: "50%", cursor: "pointer" }} onMouseEnter={dashboardMouseEnterEvent} />
 
                                 <div id="profileDropdown" onMouseLeave={dashboardMouseLeaveEvent} className="card my-2 shadow p-3 mb-5 bg-body" style={{ "height": "auto", "width": "10rem", "position": "absolute", "zIndex": 5, "right": 11, "display": "none" }}>
                                     <div id="profileDropdownBox" className="card-body">

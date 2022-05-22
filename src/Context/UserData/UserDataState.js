@@ -18,7 +18,7 @@ const UserDataState = (props) => {
 
     let [searchQuery, setSearchQuery] = useState("");
 
-    let [notificationMsg, setNotificationMsg] = useState("logged in successfull :)");
+    let [notificationMsg, setNotificationMsg] = useState("logged in successfully :)");
 
 
     // for user profile

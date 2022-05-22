@@ -46,8 +46,8 @@ export default function Bookmark() {
     }).then(response => response.json()).then((data) => {
       if (data.status === 200) {
         if (data.response.length === 0) {
-          document.getElementById("Bookmarks").innerHTML = `
-          <h2 class="text-center my-4">📑You have No Bookmarks !<h2>
+          document.getElementById("heading").innerHTML = `
+       📑You haven't uploaded any videos yet !
            `;
           console.log("bookmark data : ", data);
         }

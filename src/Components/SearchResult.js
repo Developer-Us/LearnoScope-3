@@ -4,13 +4,13 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Spinner from './Spinner';
-// import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import VideoCard from './VideoCard';
 
 let vidArray = [];
 export default function SearchResult() {
-  // const applicationMode = useContext(ApplicationModeContext);
+  const applicationMode = useContext(ApplicationModeContext);
   const userData = useContext(UserDataContext);
   const [loading, setLoading] = useState(true);
   const is_loggedin = useContext(LoggedInStatusContext);
@@ -21,19 +21,17 @@ export default function SearchResult() {
     () => {
       if (localStorage.getItem("userEmail") !== null) {
         is_loggedin.setLoggedin(true);
-        userData.setSearchQuery( localStorage.getItem("searchQuery"))
+        userData.setSearchQuery(localStorage.getItem("searchQuery"))
       }
-      // if (applicationMode.mode === "light")
-      // {
-      //   document.getElementById("heading").style.color = "#282828";
-      // }
-      // else
-      // {
-      //   document.getElementById("heading").style.color = "white";
-      // }
+      if (applicationMode.mode === "light") {
+        document.getElementById("heading").style.color = "#282828";
+      }
+      else {
+        document.getElementById("heading").style.color = "white";
+      }
       function searchVideoData() {
         let userObject = {
-          "search_string":  localStorage.getItem("searchQuery"),
+          "search_string": localStorage.getItem("searchQuery"),
           "email": localStorage.getItem("userEmail")
         }
 
@@ -47,8 +45,8 @@ export default function SearchResult() {
 
           if (data.status === 200) {
             if (data.response === "No result found") {
-              document.getElementById("searchResult").innerHTML = `
-<h4 class="text-center my-4">📑No Search Results found for the term <i>"${userData.searchQuery}"</i><h4>
+              document.getElementById("heading").innerHTML = `
+📑No Search Results found for the term <i>"${userData.searchQuery}"</i>
 `
             }
             else {

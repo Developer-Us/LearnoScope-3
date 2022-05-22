@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-// import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import UserDataContext from '../Context/UserData/UserDataContext';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ import VideoCard from './VideoCard';
 let vidArray = [];
 let vidArrayReverse = [];
 export default function Bookmark() {
-  // const applicationMode = useContext(ApplicationModeContext);
+  const applicationMode = useContext(ApplicationModeContext);
   const is_loggedin = useContext(LoggedInStatusContext);
   const userData = useContext(UserDataContext);
   const [loading, setLoading] = useState(true);
@@ -23,14 +23,12 @@ export default function Bookmark() {
     if (is_loggedin.loggedin === true) {
       getHistoryData(); // for getting Bookmark Data
     }
-    // if (applicationMode.mode === "light")
-    // {
-    //   document.getElementById("heading").style.color = "#282828";
-    // }
-    // else
-    // {
-    //   document.getElementById("heading").style.color = "white";
-    // }
+    if (applicationMode.mode === "light") {
+      document.getElementById("heading").style.color = "#282828";
+    }
+    else {
+      document.getElementById("heading").style.color = "white";
+    }
   })
 
   async function getHistoryData() {
@@ -46,8 +44,8 @@ export default function Bookmark() {
     }).then(response => response.json()).then((data) => {
       if (data.status === 200) {
         if (data.response.length === 0) {
-          document.getElementById("Histories").innerHTML = `
-          <h2 class="text-center my-4">📑You haven't watched any video yet !<h2>
+          document.getElementById("heading").innerHTML = `
+ 📑You haven't watched any video yet !
            `;
           console.log("history data : ", data);
         }

@@ -52,8 +52,8 @@ export default function LeftBar() {
         return (
             <div className='LeftBar'>
                 <div className="offcanvas offcanvas-start custom-width" data-bs-backdrop="true" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
-                    <div className="offcanvas-header">
-                        <h5 id="offcanvasLeftLabel">LearnoScope</h5>
+                    <div className="offcanvas-header text-center">
+                        <h5 id="offcanvasLeftLabel">&nbsp;&nbsp;&nbsp;LearnoScope</h5>
                     </div>
                     <div className="offcanvas-body">
                         <Link to="/videoFeed" style={{ textDecoration: "none", color: "black" }}>
