@@ -5,12 +5,12 @@ import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import UserDataContext from '../Context/UserData/UserDataContext';
-import Vedionote from './Vedionote'
+import Videonotes from './Videonotes'
 import ReminderCard from '../Components/ReminderCard'
 
 
 export default function VideoWatchSection() {
-  const applicationMode = useContext(ApplicationModeContext);
+    const applicationMode = useContext(ApplicationModeContext);
     const is_loggedin = useContext(LoggedInStatusContext);
     const userData = useContext(UserDataContext);
     const [currTimeSec, setCurrTime] = useState(0);
@@ -27,7 +27,7 @@ export default function VideoWatchSection() {
             document.getElementById("Video_metadata").style.color = "white";
             document.getElementById("accordion_item").style.backgroundColor = "#282828";
             document.getElementById("accordion_item").style.borderColor = "white";
-            document.getElementById("accordian_body").style.color = "white";  
+            document.getElementById("accordian_body").style.color = "white";
             document.getElementById("notes").style.color = "gray";
             document.getElementById("notes").style.borderColor = "white";
         }
@@ -78,31 +78,39 @@ export default function VideoWatchSection() {
         document.getElementById("ReminderCard").style.display = "block";
     }
 
-   let reportVideo = ()=>{
-       console.log("clicked report btn");
-       asyncReportVideo(userData.currentSno);
-   }
-
-   async function asyncReportVideo(sno) {
-    let userObject = {
-        "sno": sno,
-        "email": localStorage.getItem("userEmail")
+    let reportVideo = () => {
+        console.log("clicked report btn");
+        asyncReportVideo(userData.currentSno);
     }
-    await fetch(`${userData.backendApi}/reportVideo/`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userObject),
-    }).then(response => response.json()).then((data) => {
-        if (data.status === 200) {
-         alert(data.response);
+
+    async function asyncReportVideo(sno) {
+        let userObject = {
+            "sno": sno,
+            "email": localStorage.getItem("userEmail")
         }
-        else {
-         alert(data.response);
-        }
-    })
-}
+        await fetch(`${userData.backendApi}/reportVideo/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userObject),
+        }).then(response => response.json()).then((data) => {
+            if (data.status === 200) {
+                alert(data.response);
+            }
+            else {
+                alert(data.response);
+            }
+        })
+    }
+
+    const pauseOnNoteCreation = () => {
+        document.getElementById('ActualVideo').pause();
+    }
+    const playOnNoteCreation = () => {
+        document.getElementById('ActualVideo').play();
+    }
+
     //Functions for handling hover effect for like, share ...btns
     const DisplayLikeText = () => {
         document.getElementById("likeBtnText").style.display = "block";
@@ -137,8 +145,8 @@ export default function VideoWatchSection() {
     return (
         <>
             <div id="VideoWatchSection" className="VideoWatchSection">
-                <div className='VideoPlaySection my-4'>
-                    <div className="VideoPlayer">
+                <div className='VideoPlaySection my-4' >
+                    <div className="VideoPlayer" >
                         <div className="Video">
                             <video id="ActualVideo" controlsList="nodownload" src={userData.currentVideoLink} className="VideoTag" type="video/mp4" controls>
                             </video>
@@ -175,7 +183,7 @@ export default function VideoWatchSection() {
                                         <path d="M5.667 16C4.747 16 4 15.254 4 14.333v-1.86A5.985 5.985 0 0 1 2 8c0-1.777.772-3.374 2-4.472V1.667C4 .747 4.746 0 5.667 0h4.666C11.253 0 12 .746 12 1.667v1.86a5.99 5.99 0 0 1 1.918 3.48.502.502 0 0 1 .582.493v1a.5.5 0 0 1-.582.493A5.99 5.99 0 0 1 12 12.473v1.86c0 .92-.746 1.667-1.667 1.667H5.667zM13 8A5 5 0 1 0 3 8a5 5 0 0 0 10 0z" />
                                     </svg>
                                     <p id="wlBtnText">Remind me</p></span>
-                              
+
                                 <span onClick={reportVideo} style={{ display: "flex", flexDirection: "column" }}>
                                     {/* reportbutton */}
                                     <svg xmlns="http://www.w3.org/2000/svg" onMouseEnter={DisplayReportText} onMouseLeave={HideReportText} style={{ height: "35px", width: "35px", margin: "5px 10px" }} fill="currentColor" className="VideoMetaBtn bi bi-shield-fill-exclamation" viewBox="0 0 16 16">
@@ -186,9 +194,9 @@ export default function VideoWatchSection() {
                         </div>
 
                         <div className="accordion" id="accordionExample" >
-                            <div id="accordion_item" className="accordion-item" style={{"border":"none"}}>
+                            <div id="accordion_item" className="accordion-item" style={{ "border": "none" }}>
                                 <h2 className="accordion-header">
-                                    <button id="ChannelInfo" className="accordion-button ChannelInfo" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style={{"backgroundColor":"white"}}>
+                                    <button id="ChannelInfo" className="accordion-button ChannelInfo" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style={{ "backgroundColor": "white" }}>
                                         <div className="ChannelPic"><img src={userData.currentVideoChannelPhoto} style={{ borderRadius: "50%" }} height="50px" width="50px" alt=".." /></div>
                                         <div className="ChannelName">{userData.currentVideoChannelName}</div>
                                     </button>
@@ -208,10 +216,10 @@ export default function VideoWatchSection() {
 
                     </div>
 
-                    <div id="notes" className="my-2 QuizSection">
-                        <h3 style={{ padding: "8px" }} >Add Your Notes Here : </h3>
+                    <div id="notes" className="card shadow-lg p-3 mb-5 bg-white rounded my-2 notesSection">
+                        <h3 style={{ padding: "8px" }} >Add Quick Notes</h3>
                         <div style={{ display: "flex", justifyContent: "center" }}>
-                            <Vedionote cuTime={currTimeSec} setTime={setTimeHere} />
+                            <Videonotes pauseVid={pauseOnNoteCreation} playVid={playOnNoteCreation} />
                         </div>
                     </div>
 

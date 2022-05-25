@@ -1,11 +1,10 @@
 import '../Styles/Vedionote.css'
 export default function Notesdata(props) {
-
    return (
       <>
-         <div className="card" style={{ marginLeft: "20px", marginTop: "10px", width: "18rem", height: "10rem" }}>
-            <div className="card-body" style={(props.id + 1) % 2 === 0 ? { background: "blue" } : { background: "yellow" }}>
-               <p className="card-text" style={{ overflow: "auto", zIndex: "-1", width: "17vw", height: "19vh" }}><b>{"[" + (props.data[props.id]) + "]"}Note No :{props.id + 1}</b><br />{props.noteData}</p>
+         <div className="card my-3" style={{ marginLeft: "20px", marginTop: "20px", width: "18rem", height: "10rem" }}>
+            <div className="card-body" style={(props.id + 1) % 2 === 0 ? { background: "#ff7eb9" } : { background: "#7afcff" }}>
+               <p className="card-text" style={{ overflow: "auto", zIndex: "-1", width: "17vw", height: "19vh" }}><b >Note No :{props.id+1}</b><br />{props.noteData}</p>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" id="addLogo" width="20" height="20" style={{ zIndex: "2", position: "absolute" }} fill="currentColor" className="bi bi-dash-circle" viewBox="0 0 16 16" onClick={() => {
                props.deleteData(props.id)

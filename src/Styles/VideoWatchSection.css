@@ -20,6 +20,7 @@
     height: 93%;
     width: 75%;
     margin: 10px;
+    overflow: auto;
   }
   
   .Video {
@@ -102,13 +103,12 @@
     font-weight: bold;
     margin: 0px 20px;
   }
-  .QuizSection {
-    border: 1px solid black;
+  .notesSection {
     height: 94%;
     width: 25%;
     margin: 10px;
     overflow: auto;
-    /* display: block;  */
+    border: none;
   }
   
   
@@ -122,6 +122,11 @@
     .VideoPlayer {
       width: 100%;
       height: 80%;
+    }
+    #notes{
+      margin: auto;
+      width: 90%;
+      height:100%;
     }
   }
   
@@ -137,6 +142,8 @@
     .LikeShareWatchLaterReportBtns {
       margin: 1px;
     }
+  
+
   }
   
   @media screen and (max-width: 515px) {
