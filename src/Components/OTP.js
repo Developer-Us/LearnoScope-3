@@ -41,11 +41,10 @@ export default function OTP() {
     str += document.getElementById('third').value;
     str += document.getElementById('fourth').value;
     str += document.getElementById('fifth').value;
-    // console.log(typeof(parseInt(str)));
 
     let userObject = {
-      "email":localStorage.getItem("signupEmail").value,
-      "otp":str
+      "email":userData.userEmail,
+      "otp":parseInt(str)
     }
     await fetch(`${userData.backendApi}/verifyEmail/`, {
       method: "POST",

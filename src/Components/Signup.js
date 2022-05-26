@@ -21,7 +21,8 @@ export default function Signup() {
 
   let handleSignupSubmit = () => {
     console.log(document.getElementById("Signup_btn").value);
-    localStorage.setItem("signupEmail", document.getElementById("SignupEmail").value)
+    localStorage.setItem("signupEmail", document.getElementById("SignupEmail").value);
+    userData.setUserEmail(document.getElementById("SignupEmail").value)
   }
 
   return (
